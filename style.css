@@ -26,15 +26,16 @@
   --trans-color: color 0.3s;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
 *,
 ::before,
 ::after {
   box-sizing: border-box;
 }
-* {
-  margin: 0;
-  padding: 0;
-}
+
 body {
   font-family: "Poppins", sans-serif;
   font-size: 16px;
@@ -102,7 +103,7 @@ h4 {
   margin-right: -0.938em;
 }
 .column .row {
-  margin-left: -0.938em;
+  padding: 0 0.938em;
 }
 .flexwrap {
   display: flex;
@@ -301,7 +302,7 @@ header li > a {
   margin-bottom: 1.5em;
   border-bottom: 1px solid var(--border-color);
 }
-.tigger {
+.trigger {
   font-size: 1.5em;
   display: flex;
   padding: 0.25em;
@@ -417,15 +418,15 @@ nav .fly-item {
   height: 60px;
   width: 60px;
 }
-.dpt-menu .has-child:hover ul {
-  display: block;
-}
+
 .dpt-menu > ul > li > a {
   font-size: var(--font-small);
   height: 46px;
   align-items: center;
 }
-
+.dpt-menu .has-child:hover ul {
+  display: block;
+}
 /* ---------------------------== *\
  * 01. HEADER
      d. Search Form    
@@ -437,7 +438,10 @@ nav .fly-item {
 form {
   position: relative;
 }
-
+form .icon-large {
+  padding-left: 30px;
+  /* border: 1px solid red; */
+}
 form.search input {
   line-height: 3.25em;
   padding: 0 7em 0 4.5em;
@@ -476,10 +480,9 @@ form.search button:hover {
   background-color: var(--dark-color);
 }
 
-/*  *\
-
-smalll screeen
-\*  */
+/* --------------------------  *\
+ * #Small Screen
+\* --------------------------  */
 @media screen and (min-width: 920px) {
   .container {
     padding: 0 2em;
@@ -581,7 +584,6 @@ smalll screeen
     position: absolute;
     top: var(--percent100);
     width: 300px;
-    /* border: 3px solid red; */
     background-color: var(--white-color);
     border: 1px solid var(--border-color);
     border-top: 0;
@@ -612,10 +614,9 @@ smalll screeen
     background-size: auto;
   }
 
-  /* showing the first sub menu */
-  .dpt-menu .mega {
-    /* display: block; */
-  }
+  /* .dpt-menu .mega {
+    display: block;
+  } */
   .dpt-menu .beauty ul {
     background-image: url(/assets/menu/menu_bg1.jpg);
   }
@@ -626,7 +627,7 @@ smalll screeen
     background-image: url(/assets/menu/menu_bg3.jpg);
   }
   .dpt-menu .homekit .mega {
-    background-image: url(/assets/menu/menu_bg4.jpg);
+    background-color: url(/assets/menu/menu_bg4.jpg);
   }
   .dpt-menu .has-child > :where(ul, .mega)::before {
     content: "";
@@ -638,14 +639,14 @@ smalll screeen
     background: linear-gradient(
       90deg,
       rgba(225, 225, 225, 1) 0%,
-      rgba(225, 225 225 1)
+      rgba(225, 225, 225, 0) 100%
     );
   }
-  .dpt-menu .mega {
+  /* .dpt-menu .mega {
     width: auto;
-    min-width: 100%;
+    min-width: var(--percent100);
   }
   .dpt-menu .has-child:hover .mega {
     display: flex;
-  }
+  } */
 }
